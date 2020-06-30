@@ -3,8 +3,11 @@
 
 import psutil
 import time
+import os
 
-with open("/home/vivekshah/Documents/BatMan/battery_log.log","a") as logfile:
+logfilepath = os.path.dirname(os.path.realpath(__file__)) + "/battery_log.csv"
+
+with open(logfilepath,"a") as logfile:
     try:
         battery_status = psutil.sensors_battery()
         percentage = battery_status.percent
